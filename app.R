@@ -68,7 +68,12 @@ ui <- fluidPage(
     column(
       9,
       tabsetPanel(
-        tabPanel("Scatter Plot", plotOutput("scatterPlot"), textOutput("summaryText")),
+        tabPanel(
+          "Scatter Plot",
+          plotOutput("scatterPlot"),
+          textOutput("summaryText"),
+          textOutput("correlationText")
+        ),
         tabPanel("Box Plot", plotOutput("boxPlot")),
         tabPanel("Bubble Chart", plotOutput("bubblePlot"))
       )
@@ -158,6 +163,22 @@ server <- function(input, output) {
       "across selected regions:",
       round(avg, 2)
     )
+  })
+
+  output$correlationText <- renderText({
+    plot_data <- filtered_data()
+    complete_rows <- complete.cases(plot_data[[input$xvar]], plot_data[[input$yvar]])
+
+    if (sum(complete_rows) < 3) {
+      return("Correlation: not enough complete observations")
+    }
+
+    correlation <- cor(
+      plot_data[[input$xvar]][complete_rows],
+      plot_data[[input$yvar]][complete_rows]
+    )
+
+    paste("Pearson correlation for selected data:", round(correlation, 2))
   })
 }
 
