@@ -1,0 +1,9 @@
+# R / RStudio
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# macOS / editors
+.DS_Store
+.vscode/
