@@ -6,7 +6,13 @@ library(viridis)
 library(ggrepel)
 
 # Load the portfolio dataset from the repository data folder
-beauty_data <- read_csv("data/beauty_data_final_50.csv", show_col_types = FALSE)
+data_path <- file.path("data", "beauty_data_final_50.csv")
+
+if (!file.exists(data_path)) {
+  stop("Dataset not found: data/beauty_data_final_50.csv")
+}
+
+beauty_data <- read_csv(data_path, show_col_types = FALSE)
 
 beauty_data <- beauty_data |>
   mutate(
@@ -79,6 +85,7 @@ server <- function(input, output) {
 
   output$scatterPlot <- renderPlot({
     plot_data <- filtered_data()
+    validate(need(nrow(plot_data) > 1, "Select at least one region with available data."))
     label_cutoff <- quantile(plot_data[[input$yvar]], 0.90, na.rm = TRUE)
 
     ggplot(
