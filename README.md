@@ -35,7 +35,7 @@ The R Shiny app allows users to:
 - Select economic or gender-related variables for comparison
 - Compare beauty spending across regions
 - Filter countries by continent
-- Explore scatter plots with trend lines
+- Explore scatter plots with trend lines and descriptive Pearson correlations
 - Compare regional distributions with box plots
 - Explore GDP, beauty spending, and labor-force participation together with a bubble chart
 
