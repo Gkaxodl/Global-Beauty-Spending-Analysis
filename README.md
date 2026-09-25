@@ -26,7 +26,7 @@ The analysis uses the following country-level variables:
 - Beauty spending as a percentage of household income
 - Continent / region
 
-Official socioeconomic indicators were drawn from the World Bank, UNDP, and ILOSTAT. Beauty-spending variables were manually compiled from publicly available Statista figures and other market reports.
+Official socioeconomic indicators were drawn from the World Bank, UNDP, and ILOSTAT. Beauty-spending variables were manually compiled for the original academic project from figures reported across Statista and other market reports. Because these values combine multiple secondary sources, they should be treated as project-level estimates rather than a standardized official dataset.
 
 ## Interactive Dashboard
 
@@ -76,7 +76,8 @@ These patterns should be interpreted as exploratory associations rather than cau
 ## Limitations
 
 - The dataset contains one year (2023), so it does not measure changes over time.
-- Beauty-spending data were manually compiled from multiple public market sources and may not be fully consistent across countries.
+- Beauty-spending data were manually compiled from multiple secondary market sources and may not be fully consistent across countries.
+- The included CSV is a small project dataset assembled for academic analysis; source providers retain rights to their original publications and underlying materials.
 - The sample includes 50 countries and does not represent every country.
 - Broad regional categories may hide important within-region differences.
 - Observed relationships are descriptive and do not establish causation.
